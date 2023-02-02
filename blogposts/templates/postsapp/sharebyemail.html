@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{%extends 'postsapp/base.html'%}
+{%block title%} share post by email {%endblock%}
+{%block content%}
+ {%if sent%}
+   <h1>Email Successfully Sent</h1>
+   <p>"{{po.title}}" was sent by email</p>
+ {%else%}
+   <h1>share {{po.title}} by email</h1>
+   <form method="post">
+     {{fo.as_p}}
+     {%csrf_token%}
+     <input type="submit" name="" class='btn btn-lg btn-success' value="Submit mail">
+   </form>
+ {%endif%}
+{%endblock%}

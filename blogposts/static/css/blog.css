@@ -1,0 +1,36 @@
+.contant{
+  float:left;
+  width:60%;
+  padding:0 0 0 30px;
+}
+.sidebar{
+  float:right;
+  width:30%;
+  padding:10px;
+  background:green;
+  height:100%;
+  color:red;
+}
+body{
+  background: yellow;
+}
+h1{
+  text-align: center;
+  border-bottom: 1px solid #bbb;
+  padding:0 0 10px 0;
+}
+#date{
+  color: red;
+  font-size: 12px;
+  font-style: italic;
+}
+#c{
+  font-size: 25px;
+  color:white;
+}
+#t{
+  color:red;
+}
+#t1{
+  color:red;
+}

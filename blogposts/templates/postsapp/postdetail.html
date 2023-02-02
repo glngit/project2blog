@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{%extends 'postsapp/base.html'%}
+{%block title%}{{pd.title}}{%endblock%}
+{%block content%}
+<h1>{{pd.title}}</h1>
+<p id='date'>published on {{pd.publish}} by {{pd.author|title}}</p>
+{{pd.body|linebreaks}} <br><br>
+<a href="/{{pd.id}}/share" class="btn btn-lg btn-success" target="__blank">Share Post By Email</a>
+{%with comments.count as comments_count%}
+<h2>{{comments_count}} comment{{comments_count|pluralize}}</h2>
+{%endwith%}
+{%if comments%}
+{%for comment in commnets%}
+<p id='ch'>comment{{forloop.counter}} by {{comment.name}} on {{comment.created}}</p>
+<div class="cb">{{comment.body| linebreaks}} </div>
+<hr>
+{%endfor%}
+{%else%}
+<p>There is no comments yet</p>
+{%endif%}
+{%if csubmit%}
+<h2>Your comment added succesfully</h2>
+{%else%}
+<form method="post">
+  {{fd.as_p}}
+  {%csrf_token%}
+  <input type="submit" name="" class="btn btn-lg btn-success" value="Submit Comment">
+</form>
+{%endif%}
+{%endblock%}

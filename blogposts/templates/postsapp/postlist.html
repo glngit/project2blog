@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{%extends 'postsapp/base.html'%}
+{%block title%}web blog{%endblock%}
+{%block content%}
+<h1>blog</h1>
+{%for post in p%}
+<h2><a id='t' href="{{post.get_absolute_url}}">{{post.title}}</a></h2>
+<p id='date'>published on {{post.publish}} by {{post.author|title}}</p>
+{{post.body | truncatewords:30 |linebreaks}}
+{%endfor%}
+{%include 'postsapp/pagination.html' with page=p%}
+{%endblock%}
